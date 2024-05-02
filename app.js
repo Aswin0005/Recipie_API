@@ -20,6 +20,13 @@ app.use(express.json())
 
 app.use(cors())
 
+app.use((req, res, next) => {
+  res.header('Access-Control-Allow-Origin', 'https://example.com');
+  // You can also use wildcard * to allow requests from any origin
+  // res.header('Access-Control-Allow-Origin', '*');
+  next();
+});
+
 
 app.get('/',(req,res) => {
     res.send('Hello')
