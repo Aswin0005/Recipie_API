@@ -17,7 +17,12 @@ const searchRouter = require('./routes/search')
 const jobsRouter = require('./routes/jobs');
 const allRouter = require('./routes/alljob')
 app.use(express.json())
-app.use(cors());
+app.use(
+  cors({
+    origin: 'https://recipie-api-3tr8.onrender.com',
+    methods: ['GET', 'POST', 'PUT', 'DELETE'],
+  })
+);
 
 app.get('/',(req,res) => {
     res.send('Hello')
