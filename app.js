@@ -1,5 +1,6 @@
 require('dotenv').config()
 const express = require('express')
+let cors = require('cors');
 const app = express();
 //ConnectDB
 const connectDb = require('./db/dbConnect')
@@ -16,6 +17,7 @@ const searchRouter = require('./routes/search')
 const jobsRouter = require('./routes/jobs');
 const allRouter = require('./routes/alljob')
 app.use(express.json())
+app.use(cors());
 
 app.get('/',(req,res) => {
     res.send('Hello')
