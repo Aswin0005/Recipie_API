@@ -13,6 +13,8 @@ const authentication = require('./middleware/authentication')
 //routes
 const authRouter = require('./routes/auth')
 const searchRouter = require('./routes/search')
+const jobsRouter = require('./routes/jobs');
+const allRouter = require('./routes/alljob')
 app.use(express.json())
 
 app.get('/',(req,res) => {
@@ -23,6 +25,8 @@ app.use('/api/v1/auth',authRouter)
 app.use('/api/v1/search',searchRouter)
 app.use('/api/v1/user',authentication,
 )
+app.use('/api/v1/jobs',authentication, jobsRouter);
+app.use('/api/v1/jobs',allRouter)
 
 //MiddleWare
 app.use(notFoundMiddleWare);
