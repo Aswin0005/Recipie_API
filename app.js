@@ -15,6 +15,10 @@ const authRouter = require('./routes/auth')
 const searchRouter = require('./routes/search')
 app.use(express.json())
 
+app.get('/',(req,res) => {
+    res.send('Hello')
+})
+
 app.use('/api/v1/auth',authRouter)
 app.use('/api/v1/search',searchRouter)
 app.use('/api/v1/user',authentication,

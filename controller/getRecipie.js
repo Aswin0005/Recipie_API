@@ -6,7 +6,7 @@ const getRecipie = async (req, res) => {
     const queryObject = {}
 
     if(title){
-        queryObject.title = { $regex:name, $options: 'i'}
+        queryObject.title = { $regex:title, $options: 'i'}
     }
 
     let result  = await Ingred.find(queryObject)
@@ -15,9 +15,9 @@ const getRecipie = async (req, res) => {
 };
 
 
-const newRecipie = async (req,res) => {
-const recipie = await Ingred.create(req.body);
-res.status(200).json({msg: 'success'})
-}
+// const newRecipie = async (req,res) => {
+// const recipie = await Ingred.create(req.body);
+// res.status(200).json({msg: 'success'})
+// }
 
-module.exports = {getRecipie,newRecipie};
+module.exports = {getRecipie};
