@@ -25,8 +25,8 @@ app.use('/api/v1/auth',authRouter)
 app.use('/api/v1/search',searchRouter)
 app.use('/api/v1/user',authentication,
 )
-app.use('/api/v1/jobs',authentication, jobsRouter);
 app.use('/api/v1/jobs',allRouter)
+app.use('/api/v1/jobs',authentication, jobsRouter);
 
 //MiddleWare
 app.use(notFoundMiddleWare);
