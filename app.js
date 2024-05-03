@@ -1,7 +1,7 @@
 require('dotenv').config()
 const express = require('express')
-let cors = require('cors');
 const app = express();
+let cors = require('cors');
 //ConnectDB
 const connectDb = require('./db/dbConnect')
 
@@ -18,12 +18,11 @@ const jobsRouter = require('./routes/jobs');
 const allRouter = require('./routes/alljob')
 app.use(express.json())
 
-app.use(cors())
 
 app.use((req, res, next) => {
-  res.header('Access-Control-Allow-Origin', '*');
-  // You can also use wildcard * to allow requests from any origin
-  // res.header('Access-Control-Allow-Origin', '*');
+  res.setHeader('Access-Control-Allow-Origin', '*');
+  res.setHeader('Access-Control-Allow-Methods', 'POST, GET, PUT');
+  res.setHeader('Access-Control-Allow-Headers', 'Content-Type');
   next();
 });
 
